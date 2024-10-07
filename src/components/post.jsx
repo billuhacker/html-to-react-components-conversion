@@ -2,20 +2,24 @@ import React from 'react';
 
 const Post = ({ post }) => {
   return (
-    <div className="post border-bottom p-3 bg-white w-shadow">
-      <div className="media text-muted pt-3">
-        <img src={post.userImage} alt="user" className="mr-3 post-user-image" />
-        <div className="media-body pb-3 mb-0 small lh-125">
-          <div className="d-flex justify-content-between align-items-center w-100">
-            <a href="#" className="text-gray-dark post-user-name">{post.userName}</a>
+    <div className="border-b p-4 bg-white shadow-sm">
+      <div className="flex items-start space-x-4">
+        <img src={post.userImage} alt="user" className="w-10 h-10 rounded-full" />
+        <div className="flex-1">
+          <div className="flex justify-between items-center">
+            <a href="#" className="text-gray-800 font-semibold">{post.userName}</a>
           </div>
-          <span className="d-block">{post.time} <i className='bx bx-globe ml-3'></i></span>
+          <span className="block text-gray-500 text-sm">
+            {post.time} <i className='bx bx-globe ml-2'></i>
+          </span>
         </div>
       </div>
       <div className="mt-3">
-        <p>{post.content}</p>
+        <p className="text-gray-700">{post.content}</p>
       </div>
-      {post.image && <img src={post.image} className="post-content" alt="post" />}
+      {post.image && (
+        <img src={post.image} className="mt-3 rounded-lg" alt="post" />
+      )}
     </div>
   );
 };

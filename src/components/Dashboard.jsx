@@ -9,85 +9,93 @@ import ProjectTable from "./ProjectTable";
 
 const Dashboard = () => {
   return (
-    <div className="container-fluid p-0">
-      <h1 className="h3 mb-3">
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">
         <strong>Analytics</strong> Dashboard
       </h1>
 
-      <div className="row">
-        <div className="col-xl-6 col-xxl-5 d-flex">
-          <div className="w-100">
-            <div className="row">
-              <div className="col-sm-6">
-                <Card title="Sales" value="2.382" percentage="-3.65" isIncrease={false} />
-                <Card title="Visitors" value="14.212" percentage="5.25" isIncrease={true} />
-              </div>
-              <div className="col-sm-6">
-                <Card title="Earnings" value="$21.300" percentage="6.65" isIncrease={true} />
-                <Card title="Orders" value="64" percentage="-2.25" isIncrease={false} />
-              </div>
-            </div>
-          </div>
+      {/* Cards Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex">
+          <Card title="Sales" value="2.382" percentage="-3.65" isIncrease={false} />
         </div>
+        <div className="flex">
+          <Card title="Visitors" value="14.212" percentage="5.25" isIncrease={true} />
+        </div>
+        <div className="flex">
+          <Card title="Earnings" value="$21.300" percentage="6.65" isIncrease={true} />
+        </div>
+        <div className="flex">
+          <Card title="Orders" value="64" percentage="-2.25" isIncrease={false} />
+        </div>
+      </div>
 
-        <div className="col-xl-6 col-xxl-7">
-          <div className="card flex-fill w-100">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Recent Movement</h5>
+      {/* Recent Movement Chart */}
+      <div className="mt-4 flex flex-col md:flex-row">
+        <div className="flex-1 md:mr-2">
+          <div className="bg-white rounded-lg shadow-md">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Recent Movement</h5>
             </div>
-            <div className="card-body py-3">
+            <div className="p-4">
               <LineChart />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-12 col-md-6 col-xxl-3 d-flex">
-          <div className="card flex-fill w-100">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Browser Usage</h5>
+      {/* Browser Usage, Real-Time, and Calendar */}
+      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="flex">
+          <div className="bg-white rounded-lg shadow-md flex-1">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Browser Usage</h5>
             </div>
-            <div className="card-body d-flex">
+            <div className="p-4">
               <PieChart />
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-12 col-xxl-6 d-flex">
-          <div className="card flex-fill w-100">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Real-Time</h5>
+        <div className="flex">
+          <div className="bg-white rounded-lg shadow-md flex-1">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Real-Time</h5>
             </div>
-            <div className="card-body px-4">
+            <div className="p-4">
               <WorldMap />
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-6 col-xxl-3 d-flex">
-          <div className="card flex-fill w-100">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Calendar</h5>
+        <div className="flex">
+          <div className="bg-white rounded-lg shadow-md flex-1">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Calendar</h5>
             </div>
-            <Calendar />
+            <div className="p-4">
+              <Calendar />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-12 col-lg-8 col-xxl-9 d-flex">
-          <div className="card flex-fill">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Latest Projects</h5>
+      {/* Latest Projects and Monthly Sales */}
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="lg:col-span-2 flex">
+          <div className="bg-white rounded-lg shadow-md flex-1">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Latest Projects</h5>
             </div>
-            <ProjectTable />
+            <div className="p-4">
+              <ProjectTable />
+            </div>
           </div>
         </div>
-        <div className="col-12 col-lg-4 col-xxl-3 d-flex">
-          <div className="card flex-fill w-100">
-            <div className="card-header">
-              <h5 className="card-title mb-0">Monthly Sales</h5>
+        <div className="flex">
+          <div className="bg-white rounded-lg shadow-md flex-1">
+            <div className="p-4 border-b">
+              <h5 className="text-lg font-semibold">Monthly Sales</h5>
             </div>
-            <div className="card-body d-flex w-100">
+            <div className="p-4">
               <BarChart />
             </div>
           </div>
