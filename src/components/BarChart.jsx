@@ -7,17 +7,13 @@ const BarChart = () => {
     datasets: [
       {
         label: "This year",
-        backgroundColor: "rgba(55, 125, 255, 0.8)",
+        backgroundColor: "rgba(75, 192, 192, 0.6)",
         data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79]
       }
     ]
   };
 
-  const options = {
-    maintainAspectRatio: false
-  };
-
-  return <Bar data={data} options={options} />;
+  return <Bar data={data} />;
 };
 
 export default BarChart;

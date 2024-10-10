@@ -1,15 +1,32 @@
-import React from 'react';
-import Sidebar from './Sidebar';
-import Navbar from './Navbar';
-import Dashboard from './Dashboard'; // Import the Dashboard component
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
+import ProjectTable from "./ProjectTable"; // Assuming you have this component
+import Dashboard from "./Dashboard";
+import BarChart from "./BarChart";
 
 const Main = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true); // Default sidebar to open
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex flex-col flex-1">
+      {/* Sidebar */}
+      <div className="w-64 fixed overflow-y-auto h-full bg-gray-800 text-white ">
+        <Sidebar />
+      </div>
+
+      <div className="flex-1 ml-64">
+        {/* Fixed Navbar */}
         <Navbar />
-        <Dashboard />
+
+        {/* Dashboard Container */}
+        <div className="container mx-auto p-4 pt-16"> {/* Adjust pt-16 for Navbar height */}
+          <Dashboard />
+        </div>
       </div>
     </div>
   );
@@ -18,14 +35,4 @@ const Main = () => {
 export default Main;
 
 
-// i want to write the echo command for git repository
-// echo "# components(part a/assign 2)" >> README.md
-// also to pushall my Worker to the repository
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin 
-// git push -u origin main
-
-
+//mfa align --clean --overwrite C:/Users/Ajeeb/OneDrive/Desktop/Tajweed_FYP/FYP_TajweedFeedbackApp/dataset/Tajweed/14_sawad C:/Users/Ajeeb/OneDrive/Desktop/Tajweed_FYP/FYP_TajweedFeedbackApp/arabicdict.txt C:/Users/Ajeeb/OneDrive/Desktop/Tajweed_FYP/FYP_TajweedFeedbackApp/AR.zip C:/Users/Ajeeb/OneDrive/Desktop/Test
